@@ -8,7 +8,7 @@ class AppStyle{
 
 
   static List<Color> cardsColor = [
-    Colors.white,
+    Colors.pink,
     Colors.lightBlue,
     Colors.red,
     Colors.green,
