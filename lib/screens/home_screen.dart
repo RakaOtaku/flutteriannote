@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:notesapp/screens/note_editor.dart';
@@ -13,12 +14,21 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+
+
 class _HomeScreenState extends State<HomeScreen> {
+
+  void singnUserOut() {
+  FirebaseAuth.instance.signOut();
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppStyle.mainColor,
       appBar: AppBar(
+        actions: [
+          IconButton(onPressed: singnUserOut, icon: Icon(Icons.logout))
+        ],
         elevation: 0.0,
         title: Text("Notes App"),
         centerTitle: true,
